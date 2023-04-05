@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script>
+    <form action="" >
+        <div class="inputBox">
+          <input type="text" placeholder="账号" name="username" id="username"/>
+        </div>
+        <div class="inputBox">
+          <input type="password" placeholder="密码" name="password" id="password"/>
+        </div>
+        <div class="inputBox">
+          <input type="button" value="登录" id="loginone"/> 
+          <script>
+            $('#loginone').click(function(){
+            $.ajax({
+                type:'post',
+               url:'../PHP01/formlogin.php',     //实际开发过程中，是IP地址如http：、、192.168.xxx。xxx
+                data:{
+                    username:$("#username").val(),
+                    password:$("#password").val(),
+                },
+                success:function(res){
+                    console.log(res);}
+                })
+            })
+        
+          </script>
+</body>
+</html>
